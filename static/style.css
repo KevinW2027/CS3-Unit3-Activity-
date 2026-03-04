@@ -1,0 +1,47 @@
+body {
+    background-color: #0f0f0f;
+    color: #d1c7a7;
+    font-family: 'Georgia', serif;
+    margin: 0;
+    text-align: center;
+}
+
+nav {
+    background: #1a1a1a;
+    padding: 20px;
+    border-bottom: 2px solid #8e7341;
+}
+
+nav a {
+    color: #8e7341;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.container {
+    padding: 40px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.card {
+    background: #1a1a1a;
+    border: 1px solid #8e7341;
+    padding: 20px;
+    margin: 10px;
+    display: inline-block;
+    width: 200px;
+    vertical-align: top;
+}
+
+.btn {
+    background: #8e7341;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}

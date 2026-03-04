@@ -17,11 +17,21 @@ def home():
 
 @app.route('/browse', methods=['GET','POST'])
 def browse():
-    display_gods = MYTH_DATA['gods']
+    # Default: show everyone
+    results = MYTH_DATA["gods"] 
+    
     if request.method == 'POST':
-        selection = request.form.get('pantheon')
-        if selection:
-            display_gods = []
+        choice = request.form.get('pantheon')
+        if choice:
+            results = [g for g in MYTH_DATA["gods"] if g['pantheon'] == choice]
+            
+    return render_template('browse.html', gods=results)
+
+@app.route('/hero/<hero_id>')
+def profile(hero_id):
+    # Find the one hero that matches the URL
+    hero = next((g for g in MYTH_DATA["gods"] if g['id'] == hero_id), None)
+    return render_template('profile.html', hero=hero)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <h2>The Codex</h2>
+    
+    <form method="POST" style="margin-bottom: 30px;">
+        <select name="pantheon">
+            <option value="">All Pantheons</option>
+            <option value="Greek">Greek</option>
+            <option value="Norse">Norse</option>
+            <option value="Egyptian">Egyptian</option>
+        </select>
+        <button type="submit" class="btn">Filter</button>
+    </form>
+
+    {% for god in gods %}
+    <div class="card">
+        <h3>{{ god.icon }} {{ god.name }}</h3>
+        <p>{{ god.domain }}</p>
+        <a href="{{ url_for('profile', hero_id=god.id) }}" class="btn">Lore</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

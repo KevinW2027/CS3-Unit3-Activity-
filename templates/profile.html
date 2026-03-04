@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <h1 style="font-size: 3rem;">{{ hero.icon }}</h1>
+    <h1>{{ hero.name }}</h1>
+    <p><strong>Pantheon:</strong> {{ hero.pantheon }}</p>
+    <p><strong>Lore:</strong> {{ hero.desc }}</p>
+    <br>
+    <a href="{{ url_for('browse') }}" style="color: #8e7341;">← Back to Archive</a>
+</div>
+{% endblock %}
