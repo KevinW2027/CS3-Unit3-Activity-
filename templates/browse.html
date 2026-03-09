@@ -15,7 +15,7 @@
 
     {% for god in gods %}
     <div class="card">
-        <h3>{{ god.icon }} {{ god.name }}</h3>
+        <h3 class= "{{ god.name }}">{{ god.icon }} {{ god.name }}</h3>
         <p>{{ god.domain }}</p>
         <a href="{{ url_for('profile', hero_id=god.id) }}" class="btn">Lore</a>
     </div>

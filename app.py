@@ -34,4 +34,4 @@ def profile(hero_id):
     return render_template('profile.html', hero=hero)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5001, debug=True)
