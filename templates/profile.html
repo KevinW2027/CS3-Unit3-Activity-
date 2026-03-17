@@ -1,11 +1,41 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="container">
-    <h1 style="font-size: 3rem;">{{ hero.icon }}</h1>
-    <h1>{{ hero.name }}</h1>
-    <p><strong>Pantheon:</strong> {{ hero.pantheon }}</p>
-    <p><strong>Lore:</strong> {{ hero.desc }}</p>
-    <br>
-    <a href="{{ url_for('browse') }}" style="color: #8e7341;">← Back to Archive</a>
+   <div style="margin-bottom: 20px;">
+        <a href="{{ url_for('browse') }}" style="color: #8e7341; text-decoration: none;">← BACK TO CODEX</a>
+    </div>
+
+    <div style="border: 1px solid #d4af37; padding: 40px; background: #1a1a1a; position: relative;">
+        
+        <div style="margin-bottom: 20px;">
+            {% if hero.tier == "Supreme" %}
+                <span style="background: linear-gradient(45deg, #d4af37, #f4e4bc); color: #000; padding: 5px 15px; border-radius: 50px; font-weight: bold; border: 1px solid #fff;">
+                    🏆 SUPREME DEITY
+                </span>
+            {% elif hero.tier == "Major" %}
+                <span style="border: 1px solid #8e7341; color: #d4af37; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem;">
+                    🔱 MAJOR POWER
+                </span>
+            {% else %}
+                <span style="border: 1px solid #444; color: #777; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem;">
+                    📜 LESSER SPIRIT
+                </span>
+            {% endif %}
+        </div>
+
+        <span style="font-size: 5rem;">{{ hero.icon }}</span>
+        <h1 style="color: #d4af37; font-size: 3.5rem; margin: 10px 0; font-family: 'Cinzel', serif;">{{ hero.name }}</h1>
+        <p style="letter-spacing: 3px; color: #8e7341; text-transform: uppercase;">{{ hero.domain }} | {{ hero.pantheon }}</p>
+
+        <hr style="border: 0; border-top: 1px solid #333; margin: 30px 0;">
+
+        <p style="font-size: 1.3rem; line-height: 1.8; font-style: italic; max-width: 600px; margin: auto;">
+            "{{ hero.desc }}"
+        </p>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <button onclick="window.print()" class="btn">SCRIBE TO PARCHMENT</button>
+    </div>
 </div>
 {% endblock %}
